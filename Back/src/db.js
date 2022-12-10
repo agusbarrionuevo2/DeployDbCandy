@@ -9,46 +9,53 @@ const {
   dbPort,
 } = require("./utils/config");
 
+const { DB_DEPLOY } = process.env
+
 // Defino los parametros de conexión con la base de datos mediante una instancia de Sequelize
-let sequelize =
-  process.env.NODE_ENV === "production"
-    ? new Sequelize({
-        database: dbName,
-        dialect: "postgres",
-        host: dbHost,
-        port: dbPort,
-        username: dbUser,
-        password: dbPassword,
-        pool: {
-          max: 3,
-          min: 1,
-          idle: 10000,
-        },
-        dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-          keepAlive: true,
-        },
-        ssl: true,
-      })
-    : new Sequelize(
-        `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`,
-        { logging: false, native: false }
-      );
+// let sequelize =
+//   process.env.NODE_ENV === "production"
+//     ? new Sequelize({
+//         database: dbName,
+//         dialect: "postgres",
+//         host: dbHost,
+//         port: dbPort,
+//         username: dbUser,
+//         password: dbPassword,
+//         pool: {
+//           max: 3,
+//           min: 1,
+//           idle: 10000,
+//         },
+//         dialectOptions: {
+//           ssl: {
+//             require: true,
+//             rejectUnauthorized: false,
+//           },
+//           keepAlive: true,
+//         },
+//         ssl: true,
+//       })
+//     : new Sequelize(
+//         `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`,
+//         { logging: false, native: false }
+//       );
+
+const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false,
+  native: false
+})
 
 // Pruebo si la conexión está bien.
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log(
-      "The connection to the database has been established successfully."
-    );
-  } catch (error) {
-    console.log("Unable to connect to the database:", error);
-  }
-})();
+// (async () => {
+//   try {
+//     await sequelize.authenticate();
+//     console.log(
+//       "The connection to the database has been established successfully."
+//     );
+//   } catch (error) {
+//     console.log("Unable to connect to the database:", error);
+//   }
+// })();
 
 // Requiero e introduzco cada funcion de modelo en el array "modelDefiners".
 const basename = path.basename(__filename);
