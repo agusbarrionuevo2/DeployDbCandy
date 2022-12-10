@@ -1,13 +1,13 @@
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const {
-  dbUser,
-  dbPassword,
-  dbHost,
-  dbName,
-  dbPort,
-} = require("./utils/config");
+// const {
+//   dbUser,
+//   dbPassword,
+//   dbHost,
+//   dbName,
+//   dbPort,
+// } = require("./utils/config");
 
 const { DB_DEPLOY } = process.env
 
@@ -40,7 +40,7 @@ const { DB_DEPLOY } = process.env
 //         { logging: false, native: false }
 //       );
 
-const sequelize = new Sequelize(DB_DEPLOY, {
+var sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false
 })
