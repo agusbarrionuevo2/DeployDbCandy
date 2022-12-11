@@ -4,7 +4,7 @@ const { Category } = require('../db.js')
 
 
 
-categoryRouter.get("/categories", async (req, res, next) => { //busca todas las categories
+categoryRouter.get("/", async (req, res, next) => { //busca todas las categories
 	try {
 	  let categories = await Category.findAll();
 	  return res.status(200).send(categories)
@@ -13,7 +13,7 @@ categoryRouter.get("/categories", async (req, res, next) => { //busca todas las 
 	}
 });
 
-categoryRouter.post("/category", async (req, res, next) => {    //busca o agrega una categoria
+categoryRouter.post("/", async (req, res, next) => {    //busca o agrega una categoria
 	try {
 		const { name } = req.body;
         let newName = name.toLowerCase();
@@ -25,3 +25,6 @@ categoryRouter.post("/category", async (req, res, next) => {    //busca o agrega
 	  next(error);
 	}
 });
+
+
+module.exports = categoryRouter
