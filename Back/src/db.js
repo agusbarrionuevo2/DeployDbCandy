@@ -49,16 +49,16 @@ let sequelize = new Sequelize(DB_DEPLOY, {
 })
 
 // Pruebo si la conexión está bien.
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log(
-      "The connection to the database has been established successfully."
-    );
-  } catch (error) {
-    console.log("Unable to connect to the database:", error);
-  }
-})();
+// (async () => {
+//   try {
+//     await sequelize.authenticate();
+//     console.log(
+//       "The connection to the database has been established successfully."
+//     );
+//   } catch (error) {
+//     console.log("Unable to connect to the database:", error);
+//   }
+// })();
 
 // Requiero e introduzco cada funcion de modelo en el array "modelDefiners".
 const basename = path.basename(__filename);
