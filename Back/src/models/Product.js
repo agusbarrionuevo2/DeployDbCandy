@@ -47,22 +47,15 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM([
           "arcor",
           "felfort",
-          // "terrabusi",
-          // "nestle",
-          // "billiken",
           "bagley",
           "georgalos",
-          // "bonafide",
-          // "milka",
-          // "jorgito",
-          // "trident",
-          // "ferrero",
           "mogul",
           "tofi",
           "godet",
           "topline",
           "aguila",
           "bon o bon",
+          "cofler",
           "unknown",
         ]),
         defaultValue: "unknown",
@@ -77,3 +70,14 @@ module.exports = (sequelize) => {
     }
   );
 };
+
+
+//brands         
+  // "bonafide",
+  // "milka",
+  // "jorgito",
+  // "trident",
+  // "ferrero",
+  // "terrabusi",
+  // "nestle",
+  // "billiken",
