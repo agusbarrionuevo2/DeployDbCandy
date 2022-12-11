@@ -1,7 +1,6 @@
 const { Router } = require('express')
 const productRouter = Router()
 const { getAllProducts, searchCandy, searchById, updateProduct, deleteProduct, createProduct } = require('../controllers/product')
-const { Category } = require('../db.js')
 // const dbProducts = require("../../dbProducts.json");
 // const dbCategories = require("../../dbCategories.json");
 
@@ -31,6 +30,15 @@ productRouter.get("/search", async (req, res, next) => {  //busca los products p
 		next(error);
 	}
 });
+
+productRouter.get("/filters", async (req, res, next) => {
+	try {
+	  let results = await filteringProducts(req.query);
+	  res.json(results);
+	} catch (error) {
+	  next(error);
+	}
+  });
 
 
 productRouter.get("/:id", async (req, res, next) => {   //busca productos por id

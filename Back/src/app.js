@@ -6,7 +6,7 @@ const setHeaders = require("./utils/middlewares/setHeaders");
 const errorHandler = require("./utils/middlewares/errorHandler");
 
 const app = express();
-app.name = "CANDY-SHOP";
+app.name = "API";
 
 // Middlewares
 app.use(cookieParser()); // Manejo de cookies.

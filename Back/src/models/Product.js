@@ -78,14 +78,3 @@ module.exports = (sequelize) => {
     }
   );
 };
-
-
-//brands         
-  // "bonafide",
-  // "milka",
-  // "jorgito",
-  // "trident",
-  // "ferrero",
-  // "terrabusi",
-  // "nestle",
-  // "billiken",
