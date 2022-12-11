@@ -41,7 +41,7 @@ const { DB_DEPLOY } = process.env
 //         { logging: false, native: false }
 //       );
 
-var sequelize = new Sequelize(DB_DEPLOY, {
+let sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false
 })
