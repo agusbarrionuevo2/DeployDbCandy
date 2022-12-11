@@ -1,7 +1,7 @@
+require('dotenv').config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-require('dotenv').config();
 // const {
 //   dbUser,
 //   dbPassword,
@@ -10,7 +10,9 @@ require('dotenv').config();
 //   dbPort,
 // } = require("./utils/config");
 
-const { DB_DEPLOY } = process.env
+// const { DB_DEPLOY } = process.env
+
+const DB_DEPLOY = 'postgresql://postgres:3eL4KKIAQ38qw7xBRMsM@containers-us-west-141.railway.app:8021/railway'
 
 // Defino los parametros de conexión con la base de datos mediante una instancia de Sequelize
 // let sequelize =
